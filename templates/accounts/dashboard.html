@@ -4,18 +4,32 @@
 
 
 {% block content %}
-          {{id}}
-          {{field_value}}
-          {{register}}
   <section id="dashboard" class="py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          
-           {% for x in user %}
-                <h2>name : {{x.name}}</h2>
-            {% endfor %} 
-
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Address</th>
+                     <th scope="col">views</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for x in user %}
+                  <tr>
+                    <td>{{x.date}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.phone}}</td>
+                    <td>{{x.address}}</td>
+                    <td><a class="btn btn-light" href="#">View Listing</a></td>
+                  </tr>
+                {% endfor %} 
+                </tbody>
+              </table>
         </div>
       </div>
     </div>

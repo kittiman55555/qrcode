@@ -26,16 +26,19 @@ def login(request):
         return render(request, 'accounts/login.html')
    
 def dashboard(request):
-
+    
     register = Register.objects.all().filter(user_id=request.user.id).first()
     user = Register.objects.filter(brands_id=register.brands_id)
-
 
     context = {
         'user' : user      
     }
     return render(request, 'accounts/dashboard.html', context)
 
+def detailbrands(request):
+    return render(request, 'accounts/detailbrands.html')
 
 def logout(request):
-    return redirect('index')
+    #messages.error(request, 'user password not incorrect')
+    auth.logout(request)
+    return redirect('login')
