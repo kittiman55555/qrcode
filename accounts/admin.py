@@ -30,6 +30,11 @@ class RegisterAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     list_per_page = 25
 
+    
 
-admin.site.register(Register, RegisterAdmin)
-admin.site.register(Brands)
+
+
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
+admin.site.register(Brand)
