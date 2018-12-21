@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
-from accounts.models import Brands, Register
+from accounts.models import Brand, Register
 # Create your views here.
 
 
@@ -17,7 +17,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            messages.success(request, 'you are now logged in')
+            #messages.success(request, 'you are now logged in')
             return redirect('dashboard')
         else:
             messages.error(request, 'user password not incorrect')
@@ -39,6 +39,5 @@ def detailbrands(request):
     return render(request, 'accounts/detailbrands.html')
 
 def logout(request):
-    #messages.error(request, 'user password not incorrect')
     auth.logout(request)
     return redirect('login')
