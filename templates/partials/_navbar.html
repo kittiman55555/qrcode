@@ -11,14 +11,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav ml-auto">
-         {% if user.is_authenticated == register %}
+         {% if user.is_authenticated%}
             <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'dashboard' %}">
-                Welcome {{ user.username }} Dashboard</a>
+                ยินดีต้อนรับ {{ user.username }}</a>
             </li>
              <li class="nav-item mr-3">
                 <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
-                <i class="fas fa-sign-out-alt"></i>Logout</a>
+                <i class="fas fa-sign-out-alt"></i>ออกจากระบบ</a>
                 <form action="{% url 'logout' %}" method="post" id="logout">
                     {% csrf_token %}
                     <input type="hidden">
@@ -26,12 +26,8 @@
             </li> 
          {% else %}
             <li class="nav-item mr-3">
-                <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i>Register</a>
-            </li>
-            <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"></i>Login</a>
+                <i class="fas fa-sign-in-alt"></i>เข้าสู่ระบบ</a>
             </li> 
              {% endif %}
             </ul>
