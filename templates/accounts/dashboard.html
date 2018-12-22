@@ -11,21 +11,22 @@
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Tel</th>
-                    <th scope="col">Address</th>
-                     <th scope="col">views</th>
+                    <th scope="col">วันเวลา</th>
+                    <th scope="col">ชื่อ นามสกุล</th>
+                    <th scope="col">เบอร์โทรศัพท์</th>
+                    <th scope="col">ที่อยู่</th>
+                     <th scope="col">รายละเอียด</th>
                   </tr>
                 </thead>
                 <tbody>
-                {% for x in user %}
+                {% for x in userbybrands %}
                   <tr>
                     <td>{{x.date}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.phone}}</td>
                     <td>{{x.address}}</td>
-                    <td><a class="btn btn-light" href="#">View Listing</a></td>
+                    <td><a class="btn btn-light" href="{% url 'detail' x.id %}">รายละเอียด</a></td>
+                    {% csrf_token %}
                   </tr>
                 {% endfor %} 
                 </tbody>

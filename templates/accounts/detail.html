@@ -1,0 +1,173 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}detail{% endblock title %}
+{% block content %}
+<body class="{% block body_class %}detail-pages{% endblock %}">
+<section id="detail" class="py-4">
+  {% if register %}
+    {% for x in register %}
+    <div class="container emp-profile">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                        <h5>ชื่อ นามสกุล : {{x.name}}</h5>
+                                        <h6>Brands : {{x.brands}}</h6>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">เกี่ยวกับเรา</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">รายละเอียด</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Datetime : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.date}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Phone : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.phone}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Email : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.item_number}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Code : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.code}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Address : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.address}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>http_user : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.http_user}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>latitude : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.latitude}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>longitude : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.longitude}}</p>
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf1</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf1}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf2 : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf2}}</p>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf2 :</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf2}}</p>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf3 :</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf3}}</p>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf4 :</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf4}}</p>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf5 : </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf6}}</p>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>cf7 :</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{x.cf7}}</p>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>           
+            </div>
+      {% endfor %}
+      {% else %}
+       no brands user
+  {% endif %}
+     
+  </section>
+{% endblock content %}

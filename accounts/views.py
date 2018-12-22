@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
-from accounts.models import Brand, Register
+from accounts.models import Brand, Register, Profile
 # Create your views here.
 
 
@@ -17,7 +17,6 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            #messages.success(request, 'you are now logged in')
             return redirect('dashboard')
         else:
             messages.error(request, 'user password not incorrect')
@@ -27,16 +26,21 @@ def login(request):
    
 def dashboard(request):
     
-    register = Register.objects.all().filter(user_id=request.user.id).first()
-    user = Register.objects.filter(brands_id=register.brands_id)
+    profile = Profile.objects.all().filter(user_id=request.user.id)[0]
+    userbybrands = Register.objects.filter(brands_id=profile.brand_id)
 
     context = {
-        'user' : user      
+        'userbybrands' : userbybrands      
     }
     return render(request, 'accounts/dashboard.html', context)
 
-def detailbrands(request):
-    return render(request, 'accounts/detailbrands.html')
+def detail(request, id):
+    #registers = get_object_or_404(Register, pk=id)
+    registers = Register.objects.all().filter(pk=id)
+    context = {
+        'register' : registers
+    }
+    return render(request, 'accounts/detail.html', context)
 
 def logout(request):
     auth.logout(request)

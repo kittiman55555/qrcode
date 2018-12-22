@@ -12,7 +12,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline,)
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'get_location')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
     list_select_related = ('profile',)
 
     def get_location(self, instance):
@@ -26,15 +26,13 @@ class CustomUserAdmin(UserAdmin):
 
 
 class RegisterAdmin(admin.ModelAdmin):
-    list_display = ('brands', 'id', 'name', 'date', 'phone', 'address', 'code','item_number')
+    list_display = ('brands', 'id', 'name', 'date', 'phone', 'address', 'code', 'item_number')
     list_display_links = ('id', 'name')
     list_per_page = 25
 
     
 
-
-
-
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Brand)
+admin.site.register(Register)
