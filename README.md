@@ -1,4 +1,4 @@
-# qr code workshop# Django Admin User Profile
+# qr code workshop
 
 
 
